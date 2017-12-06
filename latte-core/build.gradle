@@ -32,4 +32,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':latte-annotations')
+    //字体库
+    compile 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
+    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
 }
