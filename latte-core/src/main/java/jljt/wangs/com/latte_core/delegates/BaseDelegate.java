@@ -17,9 +17,10 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
  */
 
 public abstract class BaseDelegate extends SwipeBackFragment{
+    @SuppressWarnings("SpellCheckingInspection")//忽略拼写
     private Unbinder mUnbinder=null;
-    public abstract Object setLayout();//强制子类实现
-    public abstract void onBindView();
+    public abstract Object setLayout();//强制子类实现绑定视图
+    public abstract void onBindView(@Nullable Bundle savedInstanceState,View rootView);//可以获取id绑定
 
     @Nullable
     @Override
@@ -33,9 +34,16 @@ public abstract class BaseDelegate extends SwipeBackFragment{
             rootView= (View) setLayout();
         }
         if(rootView!=null){
-            mUnbinder= ButterKnife.bind(this, rootView);
+            mUnbinder= ButterKnife.bind(this, rootView);//已经绑定完成
+            onBindView(savedInstanceState,rootView);
         }
-        return super.onCreateView(inflater, container, savedInstanceState);
-
+        return rootView;
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    if(mUnbinder!=null){
+        mUnbinder.unbind();//解除绑定
+    }
     }
 }
