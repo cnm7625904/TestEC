@@ -21,11 +21,9 @@ public abstract class BaseDelegate extends SwipeBackFragment{
     private Unbinder mUnbinder=null;
     public abstract Object setLayout();//强制子类实现绑定视图
     public abstract void onBindView(@Nullable Bundle savedInstanceState,View rootView);//可以获取id绑定
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         View rootView=null;
         if(setLayout() instanceof Integer){//布局为layout
             rootView=inflater.inflate((Integer) setLayout(),container,false);

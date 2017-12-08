@@ -5,5 +5,4 @@ package jljt.wangs.com.latte_core.delegates;
  */
 
 public abstract class LatteDelegate extends PermissionCherckerDelegate {
-
 }
