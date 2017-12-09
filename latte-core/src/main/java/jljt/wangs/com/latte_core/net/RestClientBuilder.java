@@ -1,5 +1,7 @@
 package jljt.wangs.com.latte_core.net;
 
+import android.content.Context;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -8,6 +10,7 @@ import jljt.wangs.com.latte_core.net.callback.IError;
 import jljt.wangs.com.latte_core.net.callback.IFailure;
 import jljt.wangs.com.latte_core.net.callback.IRequest;
 import jljt.wangs.com.latte_core.net.callback.ISuccess;
+import jljt.wangs.com.latte_core.ui.LoaderStyle;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 
@@ -18,13 +21,15 @@ import okhttp3.RequestBody;
  */
 
 public class RestClientBuilder {
-    private  String mUrl;
+    private  String mUrl=null;
     private static final  Map<String,Object> PARAMS=RestCreator.getParams();
-    private  IRequest mIRequest;
-    private  ISuccess mISuccess;
-    private  IError mIError;
-    private  IFailure mIFailure;
-    private RequestBody mBody;
+    private  IRequest mIRequest=null;
+    private  ISuccess mISuccess=null;
+    private  IError mIError=null;
+    private  IFailure mIFailure=null;
+    private RequestBody mBody=null;
+    private Context mContext=null;
+    private LoaderStyle mLoaderStyle=null;
 
     public RestClientBuilder() {
     }
@@ -64,7 +69,7 @@ public class RestClientBuilder {
         this.mIRequest=iRequest;
         return this;
     }
-//    /**
+    //    /**
 //     * 检查
 //     */
 //    private Map<String,Object> cheackParams(){
@@ -73,7 +78,17 @@ public class RestClientBuilder {
 //        }
 //        return PARAMS;
 //    }
+    public final RestClientBuilder loader(Context context,LoaderStyle loaderStyle){
+        this.mLoaderStyle=loaderStyle;
+        this.mContext=context;
+        return this;
+    }
+    public final RestClientBuilder loader(Context context){
+        this.mLoaderStyle=LoaderStyle.BallClipRotatePulseIndicator;
+        this.mContext=context;
+        return this;
+    }
     public final RestClient build(){
-        return new RestClient(mUrl,PARAMS,mIRequest,mISuccess,mIError,mIFailure,mBody);
+        return new RestClient(mUrl,PARAMS,mIRequest,mISuccess,mIError,mIFailure,mBody,mLoaderStyle,mContext);
     }
 }

@@ -13,6 +13,8 @@ import jljt.wangs.com.latte_core.net.callback.ISuccess;
 
 /**
  * Created by Administrator。 on 2017/12/7.
+ * Shift+F6快速修改
+ * Ctrl+Shift+U大小写切换
  */
 
 public class ExampleDelegate extends LatteDelegate{
@@ -28,10 +30,11 @@ public class ExampleDelegate extends LatteDelegate{
     private void testRestClient(){
         RestClient.builder()
                 .url("http://news.baidu.com")
+                .loader(getContext())
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-                        Toast.makeText(getContext(),response,Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getContext(),response,Toast.LENGTH_LONG).show();
                     }
                 })
                 .failure(new IFailure() {
