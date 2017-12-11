@@ -3,8 +3,10 @@ package jljt.wangs.com.latte_core.net;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -31,9 +33,17 @@ public interface RestService {
     @POST
     Call<String> post(@Url String url, @FieldMap Map<String, Object> params);
 
+    //上传原始数据
+    @POST
+    Call<String> postRow(@Url String url, @Body RequestBody body);
+
     @FormUrlEncoded
     @PUT
     Call<String> put(@Url String url, @FieldMap Map<String, Object> params);
+
+    //上传原始数据
+    @PUT
+    Call<String> putRow(@Url String url, @Body RequestBody body);
 
     @DELETE
     Call<String> delete(@Url String url, @QueryMap Map<String, Object> params);
