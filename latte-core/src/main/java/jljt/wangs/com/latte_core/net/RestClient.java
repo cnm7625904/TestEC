@@ -9,6 +9,7 @@ import jljt.wangs.com.latte_core.net.callback.IFailure;
 import jljt.wangs.com.latte_core.net.callback.IRequest;
 import jljt.wangs.com.latte_core.net.callback.ISuccess;
 import jljt.wangs.com.latte_core.net.callback.RequestCallbacks;
+import jljt.wangs.com.latte_core.net.download.DownloadHandler;
 import jljt.wangs.com.latte_core.ui.LatteLoader;
 import jljt.wangs.com.latte_core.ui.LoaderStyle;
 import okhttp3.MediaType;
@@ -35,6 +36,9 @@ public class RestClient {
     private final LoaderStyle LOADER_STYLE;
     private final Context CONTEXT;
     private final File FILE;
+    private final String DOWNLOAD_DIR;//下载路径
+    private final String EXTENSION;//后缀名
+    private final String NAME;//完整名字
     public RestClient(String url,
                       Map<String, Object> params,
                       IRequest requset,
@@ -44,7 +48,10 @@ public class RestClient {
                       RequestBody body,
                       LoaderStyle loaderStyle,
                       Context context,
-                      File file) {
+                      File file,
+                      String download_Dir,
+                      String extension,
+                      String name) {
         this.URL = url;
         PARAMS.putAll(params);
         this.REQUEST = requset;
@@ -55,6 +62,9 @@ public class RestClient {
         this.LOADER_STYLE=loaderStyle;
         this.CONTEXT=context;
         this.FILE=file;
+        this.DOWNLOAD_DIR=download_Dir;
+        this.EXTENSION=extension;
+        this.NAME=name;
     }
     public static RestClientBuilder builder(){
         return new RestClientBuilder();
@@ -136,5 +146,11 @@ public class RestClient {
     }
     public final void delete(){
         request(HttpMethod.DELETE);
+    }
+    public final void upload(){
+        request(HttpMethod.UPLOAD);
+    }
+    public final void download(){
+      new DownloadHandler(URL,REQUEST,SUCCESS,ERROR,FAIRLURE,DOWNLOAD_DIR,EXTENSION,NAME).handleDownload();
     }
 }

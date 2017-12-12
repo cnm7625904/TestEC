@@ -11,7 +11,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 import java.util.ArrayList;
 
 import jljt.wangs.com.latte_core.R;
-import jljt.wangs.com.latte_core.util.DimenUtil;
+import jljt.wangs.com.latte_core.util.dimen.DimenUtil;
 
 /**
  * Created by Administrator。 on 2017/12/9.

@@ -32,6 +32,9 @@ public class RestClientBuilder {
     private Context mContext=null;
     private LoaderStyle mLoaderStyle=null;
     private File mFile=null;
+    private  String mDownloadDir;//下载路径
+    private  String mExtension;//后缀名
+    private  String mName;//完整名字
 
     public RestClientBuilder() {
     }
@@ -41,6 +44,35 @@ public class RestClientBuilder {
     }
     public final RestClientBuilder params(HashMap<String,Object> params){
         PARAMS.putAll(params);
+        return this;
+    }
+
+    /**
+     * 存放目录
+     * @param dir
+     * @return
+     */
+    public final RestClientBuilder dir(String dir){
+        this.mDownloadDir=dir;
+        return this;
+    }
+
+    /**
+     * 后缀名
+     * @param extension
+     * @return
+     */
+    public final RestClientBuilder extension(String extension){
+        this.mExtension=extension;
+        return this;
+    }
+    /**
+     * 存放完整名字
+     * @param name
+     * @return
+     */
+    public final RestClientBuilder name(String name){
+        this.mName=name;
         return this;
     }
     /**
@@ -99,6 +131,6 @@ public class RestClientBuilder {
         return this;
     }
     public final RestClient build(){
-        return new RestClient(mUrl,PARAMS,mIRequest,mISuccess,mIError,mIFailure,mBody,mLoaderStyle,mContext,mFile);
+        return new RestClient(mUrl,PARAMS,mIRequest,mISuccess,mIError,mIFailure,mBody,mLoaderStyle,mContext,mFile,mDownloadDir,mExtension,mName);
     }
 }

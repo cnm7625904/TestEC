@@ -6,6 +6,7 @@ import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 import jljt.wangs.Icon.FontEcModule;
 import jljt.wangs.com.latte_core.app.Latte;
+import jljt.wangs.com.latte_core.net.interceptors.DebugInterceptor;
 
 /**
  * Created by Administrator on 2017/12/6.
@@ -18,7 +19,8 @@ public class ExampleApp extends Application{
         Latte.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
-                .withApiHost("http://127.0.0.1")
+                .withApiHost("http://10.0.2.2")
+                .withInterceptor(new DebugInterceptor("http://10.0.2.2",R.raw.test))
                 .configure();
 
     }

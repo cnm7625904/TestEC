@@ -2,8 +2,6 @@ package jljt.wangs.com.latte_core.app;
 
 import android.content.Context;
 
-import java.util.HashMap;
-
 /**
  * Created by Administrator on 2017/12/6.
  * final不能被继承
@@ -11,16 +9,21 @@ import java.util.HashMap;
 
 public final class Latte {
     public static Configurator init(Context context){
-       getConfigurations().put(ConfigType.APPLICATION_CONTEXT.name(),context.getApplicationContext());
+       Configurator.getInstance().
+               getLatteConfigs().
+               put(ConfigKeys.APPLICATION_CONTEXT,context.getApplicationContext());
        return Configurator.getInstance();
     }
-    public static HashMap<String,Object> getConfigurations(){
-        return Configurator.getInstance().getLatteConfigs();
+    public static Configurator getConfigrator(){
+        return Configurator.getInstance();
+    }
+    public static <T> T getConfigurations(Object key){
+        return getConfigrator().getConfigration(key);
     }
     /**
      * 获取context的名字
      */
-    public static Context getApplication(){
-        return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
+    public static Context getApplicationContext(){
+        return getConfigurations(ConfigKeys.APPLICATION_CONTEXT);
     }
 }

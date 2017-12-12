@@ -1,4 +1,4 @@
-package jljt.wangs.com.latte_core.util;
+package jljt.wangs.com.latte_core.util.dimen;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
@@ -15,7 +15,7 @@ public class DimenUtil {
      * @return
      */
     public static int getScreenWidth(){
-        final Resources resources= Latte.getApplication().getResources();
+        final Resources resources= Latte.getApplicationContext().getResources();
         final DisplayMetrics dm=resources.getDisplayMetrics();
         return  dm.widthPixels;
     }
@@ -23,7 +23,7 @@ public class DimenUtil {
      * 获取屏幕高度
      */
     public static int getScreenHeigth(){
-        final Resources resources= Latte.getApplication().getResources();
+        final Resources resources= Latte.getApplicationContext().getResources();
         final DisplayMetrics dm=resources.getDisplayMetrics();
         return  dm.heightPixels;
     }
