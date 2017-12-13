@@ -10,6 +10,7 @@ import jljt.wangs.com.latte_core.net.RestClient;
 import jljt.wangs.com.latte_core.net.callback.IError;
 import jljt.wangs.com.latte_core.net.callback.IFailure;
 import jljt.wangs.com.latte_core.net.callback.ISuccess;
+import jljt.wangs.com.latte_core.util.file.FileUtil;
 
 /**
  * Created by Administrator。 on 2017/12/7.
@@ -35,6 +36,8 @@ public class ExampleDelegate extends LatteDelegate{
                     @Override
                     public void onSuccess(String response) {
                         Toast.makeText(getContext(),response,Toast.LENGTH_LONG).show();
+//                    String json= FileUtil.getRawFile(R.raw.test);
+//                    Toast.makeText(getContext(),"json:"+json,Toast.LENGTH_LONG).show();
                     }
                 })
                 .failure(new IFailure() {

@@ -19,8 +19,8 @@ public class ExampleApp extends Application{
         Latte.init(this)
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
-                .withApiHost("http://10.0.2.2")
-                .withInterceptor(new DebugInterceptor("http://10.0.2.2",R.raw.test))
+                .withApiHost("http://news.baidu.com")
+                .withInterceptor(new DebugInterceptor("10",R.raw.test))
                 .configure();
 
     }

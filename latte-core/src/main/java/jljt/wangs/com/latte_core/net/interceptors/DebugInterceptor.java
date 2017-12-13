@@ -27,14 +27,15 @@ public class DebugInterceptor extends BaseInterceptor {
     }
     //获取文件
     private Response getResponse(Chain chain,String json){
-        return   new Response.Builder()
+        return new Response.Builder()
                 .code(200)
-                .addHeader("Content-Type","application/json")
-                .body(ResponseBody.create(MediaType.parse("application/json"),json))
+                .addHeader("Content-Type", "application/json")
+                .body(ResponseBody.create(MediaType.parse("application/json"), json))
                 .message("OK")
-                .request( chain.request())
-                .protocol(Protocol.HTTP_1_1)//http协议
-                . build();
+                .request(chain.request())
+                .protocol(Protocol.HTTP_1_1)
+                .build();
+
     }
     private Response debugRessponse(Chain chain, @RawRes int rawId){
         final String json= FileUtil.getRawFile(rawId);
@@ -48,10 +49,12 @@ public class DebugInterceptor extends BaseInterceptor {
      */
     @Override
     public Response intercept(Chain chain) throws IOException {
-        final String url=chain.request().url().toString();
-        if(url.contains("DEBUG_URL")){
-            return debugRessponse(chain,DEBUG_RAW_ID);
+
+        final String url = chain.request().url().toString();
+        if (url.contains(DEBUG_URL)) {
+            return debugRessponse(chain, DEBUG_RAW_ID);
         }
-        return chain.proceed(chain.request());//原样返回
+        return chain.proceed(chain.request());
+
     }
 }
