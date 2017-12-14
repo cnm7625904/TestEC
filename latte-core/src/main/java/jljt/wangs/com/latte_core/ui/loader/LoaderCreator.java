@@ -1,4 +1,4 @@
-package jljt.wangs.com.latte_core.ui;
+package jljt.wangs.com.latte_core.ui.loader;
 
 import android.content.Context;
 

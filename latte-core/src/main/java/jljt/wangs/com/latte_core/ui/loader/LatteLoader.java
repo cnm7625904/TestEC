@@ -1,4 +1,4 @@
-package jljt.wangs.com.latte_core.ui;
+package jljt.wangs.com.latte_core.ui.loader;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatDialog;
@@ -28,7 +28,7 @@ public class LatteLoader {
      */
     private static final ArrayList<AppCompatDialog> LOADERS=new ArrayList<>();
     //默认加载样式
-    private static final String DEAFAULT_LOADER=LoaderStyle.BallClipRotatePulseIndicator.name();
+    private static final String DEAFAULT_LOADER= LoaderStyle.BallClipRotatePulseIndicator.name();
 
     public static void showLoading(Context context,Enum<LoaderStyle> loaderStyleEnum){
       showLoading(context,loaderStyleEnum.name());
@@ -38,7 +38,7 @@ public class LatteLoader {
 
         final AppCompatDialog dialog=new AppCompatDialog(context,R.style.dialog);
 
-        final AVLoadingIndicatorView avLoadingIndicatorView=LoaderCreator.creat(type,context);
+        final AVLoadingIndicatorView avLoadingIndicatorView= LoaderCreator.creat(type,context);
         dialog.setContentView(avLoadingIndicatorView);
 
         int deviceWidth= DimenUtil.getScreenWidth();

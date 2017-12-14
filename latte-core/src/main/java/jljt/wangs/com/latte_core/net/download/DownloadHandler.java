@@ -1,9 +1,7 @@
 package jljt.wangs.com.latte_core.net.download;
 
-import android.content.Context;
 import android.os.AsyncTask;
 
-import java.io.File;
 import java.util.WeakHashMap;
 
 import jljt.wangs.com.latte_core.net.RestCreator;
@@ -11,8 +9,6 @@ import jljt.wangs.com.latte_core.net.callback.IError;
 import jljt.wangs.com.latte_core.net.callback.IFailure;
 import jljt.wangs.com.latte_core.net.callback.IRequest;
 import jljt.wangs.com.latte_core.net.callback.ISuccess;
-import jljt.wangs.com.latte_core.ui.LoaderStyle;
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,10 +1,9 @@
 package jljt.wangs.com.latte_core.net.callback;
 
 import android.os.Handler;
-import android.os.HandlerThread;
 
-import jljt.wangs.com.latte_core.ui.LatteLoader;
-import jljt.wangs.com.latte_core.ui.LoaderStyle;
+import jljt.wangs.com.latte_core.ui.loader.LatteLoader;
+import jljt.wangs.com.latte_core.ui.loader.LoaderStyle;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

@@ -43,7 +43,6 @@ public class ExampleDelegate extends LatteDelegate{
                 .failure(new IFailure() {
                     @Override
                     public void onFailure() {
-
                     }
                 }).error(new IError() {
             @Override

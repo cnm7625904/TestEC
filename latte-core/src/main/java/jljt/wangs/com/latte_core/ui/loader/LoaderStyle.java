@@ -1,4 +1,4 @@
-package jljt.wangs.com.latte_core.ui;
+package jljt.wangs.com.latte_core.ui.loader;
 
 /**
  * Created by Administrator。 on 2017/12/9.
