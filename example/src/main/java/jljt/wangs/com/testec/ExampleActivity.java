@@ -8,11 +8,12 @@ import jljt.wangs.com.latte.ec.luncher.LuncherDelegate;
 import jljt.wangs.com.latte.ec.luncher.LuncherScrollDelegate;
 import jljt.wangs.com.latte_core.activities.ProxyActivity;
 import jljt.wangs.com.latte_core.delegates.LatteDelegate;
+import jljt.wangs.sign.SignUpDelegate;
 
 public class ExampleActivity extends ProxyActivity {
     @Override
     public LatteDelegate setRootDelegate() {
-        return new LuncherDelegate();
+        return new SignUpDelegate();
     }
 
     @Override

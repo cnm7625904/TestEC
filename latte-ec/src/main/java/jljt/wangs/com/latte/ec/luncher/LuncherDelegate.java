@@ -56,6 +56,7 @@ public class LuncherDelegate extends LatteDelegate implements ITimerListener{
             start(new LuncherScrollDelegate(),SINGLETASK);
         }else {
             //检查用户是否登录了APP
+
         }
     }
     @Override

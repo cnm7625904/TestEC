@@ -20,8 +20,7 @@ public class ExampleApp extends Application{
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
                 .withApiHost("http://news.baidu.com")
-                .withInterceptor(new DebugInterceptor("10",R.raw.test))
+                .withInterceptor(new DebugInterceptor("index",R.raw.test))
                 .configure();
-
     }
 }

@@ -30,7 +30,7 @@ public class ExampleDelegate extends LatteDelegate{
     }
     private void testRestClient(){
         RestClient.builder()
-                .url("http://10.0.2.2")
+                .url("http://192.168.0.104/index.jsp")
                 .loader(getContext())
                 .success(new ISuccess() {
                     @Override
